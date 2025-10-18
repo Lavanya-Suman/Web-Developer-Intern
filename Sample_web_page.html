@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My First Web Page - Cognifyz Internship</title>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7f9fc;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4b70e2;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    nav {
+      background-color: #3a4ca1;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    img {
+      width: 250px;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
+
+    form {
+      margin: 20px auto;
+      width: 300px;
+      text-align: left;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: #4b70e2;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3a4ca1;
+    }
+
+    .btn {
+      background-color: #4b70e2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .calculator {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .calc-input {
+      width: 60px;
+      text-align: center;
+      margin: 5px;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to My First Web Page!</h1>
+    <p>Created as part of the Cognifyz Web Development Internship</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <section>
+    <h2>About Me</h2>
+    <p>Hello! I’m an aspiring web developer, excited to learn HTML, CSS, and JavaScript with Cognifyz Technologies.</p>
+    <img src="C:\Users\Lavanya Suman\OneDrive\Desktop\Web_developer_intern\Level 1\web1.png" alt="Web Development" />
+
+    <!-- Simple Form -->
+    <form onsubmit="return false;">
+      <label for="name">Enter your name:</label>
+      <input type="text" id="name" placeholder="Your name here" />
+      <input type="submit" value="Submit" onclick="greetUser()" />
+    </form>
+
+    <!-- Button Color Change -->
+    <button class="btn" id="colorBtn" onclick="changeColor()">Click Me!</button>
+
+    <!-- Calculator -->
+    <div class="calculator">
+      <h3>Simple Calculator</h3>
+      <input type="number" id="num1" class="calc-input" placeholder="Num 1" />
+      <input type="number" id="num2" class="calc-input" placeholder="Num 2" />
+      <button class="btn" onclick="calculateSum()">Add</button>
+      <p id="result"></p>
+    </div>
+  </section>
+
+  <script>
+    // Greeting Message based on Time
+    function greetUser() {
+      const name = document.getElementById("name").value || "there";
+      const hour = new Date().getHours();
+      let greeting;
+-
+      if (hour < 12) 
+        greeting = "Good morning";
+      else if (hour < 18) greeting = "Good afternoon";
+      else greeting = "Good evening";
+
+      alert(`${greeting}, ${name}! Welcome to my page.`);
+    }
+
+    // Button color change
+    function changeColor() {
+      const btn = document.getElementById("colorBtn");
+      const colors = ["#e74c3c", "#2ecc71", "#9b59b6", "#f1c40f"];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      btn.style.backgroundColor = randomColor;
+    }
+
+    // Basic Calculator
+    function calculateSum() {
+      const n1 = parseFloat(document.getElementById("num1").value) || 0;
+      const n2 = parseFloat(document.getElementById("num2").value) || 0;
+      const result = n1 + n2;
+      document.getElementById("result").innerText = `Result: ${result}`;
+    }
+  </script>
+</body>
+</html>
